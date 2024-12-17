@@ -1,0 +1,53 @@
+.Item{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    list-style: none;
+    text-align: center;
+    border: solid 2px yellowgreen;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+.Item span{
+    margin: 5px;
+}
+
+.Item .check{
+    position: relative;
+    right: 1.7vw;
+    color: black;
+    background-color: green;
+    border: solid 2px green;
+    border-radius: 50%;
+    height: 1.3vw;
+    width: 1.4vw;
+}
+
+.Item .check--active{
+    color: white;
+    font-weight: bold;
+}
+
+.Item .description{
+    color: black;
+}
+
+.Item .description--active{
+    color: grey;
+    cursor: auto;
+}
+
+.Item .delete{
+    position: relative;
+    bottom: 1.5vw;
+    left: 1vw;
+    border-radius: 50%;
+    width: 1.5vw;
+    height: 1.5vw;
+    color: white;
+    background-color: red;
+}
