@@ -1,9 +1,14 @@
+import { MdAdd } from "react-icons/md";
+
+import './CreateBtnProduct.css'
+
 function CreateBtnProduct(){
     return (
-        <button 
+        <button
+            className="BtnPrimary"
             title="Add Product"
             color="#841584"
-            >+</button>
+            ><MdAdd size={50} className="Icon"/></button>
     );
 }
 

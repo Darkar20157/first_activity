@@ -1,0 +1,68 @@
+.Loading-Container{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    list-style: none;
+    text-align: center;
+    border: solid 2px rgb(238,174,202);
+    border-radius: 20px;
+    cursor: pointer;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.Loading-Container span{
+    margin: 5px;
+}
+
+.Loading-Container .Loading-Icon{
+    position: relative;
+    right: 1.7vw;
+    color: black;
+    border-radius: 50%;
+    height: 1.3vw;
+    width: 1.4vw;
+    color: hidden;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.Loading-Container .Loading-Text{
+    color: transparent;
+}
+
+.Loading-Container .Loading-Delete{
+    position: relative;
+    bottom: 1.5vw;
+    left: 1vw;
+    border-radius: 50%;
+    width: 1.5vw;
+    height: 1.5vw;
+    color: transparent;
+    background: rgb(238,174,202);
+}
+
+.Loading-Container,
+.Loading-Icon,
+.Loading-Text
+.Loading-Delete{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    animation: loadingAnimation 3s ease-in-out infinite;
+}
+
+@keyframes loadingAnimation{
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+}

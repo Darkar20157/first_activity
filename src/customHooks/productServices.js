@@ -15,23 +15,44 @@ const listProducts = [
 ]
 
 function UseCustomHooks(itemName, initialValue){
-  
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
-  if(!localStorageItem || localStorageItem === "[]"){
-    localStorage.setItem("listProducts", JSON.stringify(listProducts));
-    parsedItem = listProducts;
-  }else{
-    parsedItem = JSON.parse(localStorage.getItem("listProducts"));
-  }
+  const [items, setItems] = React.useState(initialValue);
 
-  const [items, setItems] = React.useState(parsedItem);
+  const [loading, setLoading] = React.useState(true);
+
+  const [error, setError] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() =>  {
+      try{
+        const localStorageItem = localStorage.getItem('listProducts');
+        let parsedItem;
+  
+        if(!localStorageItem || localStorageItem === "[]"){
+          localStorage.setItem("listProducts", JSON.stringify(listProducts));
+          parsedItem = listProducts;
+        }else{
+          parsedItem = JSON.parse(localStorage.getItem("listProducts"));
+          setItems(parsedItem);
+        }
+        setLoading(false);
+      }catch(err){
+        setError(err);
+      }finally{
+        setLoading(false);
+      }
+    }, 2000)
+  }, []);
 
   const saveItemLocalStorage = (newItem) =>{
     localStorage.setItem("listProducts", JSON.stringify(newItem));
     setItems(newItem);
   }
-  return [items, saveItemLocalStorage];
+  return {
+    items,
+    saveItemLocalStorage,
+    loading,
+    error
+  }
 }
 
 // const getAllProducts = async () =>{

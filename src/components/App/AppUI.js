@@ -3,6 +3,10 @@ import { ProductSearch } from '../ProductSearch/ProductSearch';
 import { ListProducts } from '../ListProducts/ListProducts';
 import { CreateBtnProduct } from '../CreateBtnProducts/CreateBtnProduct';
 import { ProductItem } from '../ProductItem/ProductItem';
+import { Loading } from '../utils/Loading';
+import { Error }  from '../utils/Error';
+import { EmptyData } from '../utils/EmptyData';
+
 
 import React from "react";
 
@@ -14,7 +18,9 @@ function AppUI(
         searchListProduct,
         setSearchValue,
         completeProduct,
-        removeProduct
+        removeProduct,
+        loading,
+        error
     }
 ){
     return (
@@ -26,6 +32,11 @@ function AppUI(
             setSearchValue={setSearchValue}
             />
             <ListProducts>
+              {loading && <Loading /> }
+              {loading && <Loading /> }
+              {loading && <Loading /> }
+              {error && <Error/>  }
+              {(loading && searchListProduct.length === 0) && <EmptyData/> }
               {searchListProduct.map((item, index) => (
                 <ProductItem 
                   key={index} 

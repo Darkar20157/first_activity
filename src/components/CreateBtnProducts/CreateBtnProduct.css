@@ -1,0 +1,17 @@
+.BtnPrimary{
+    position: fixed;
+    left: 92vw;
+    top: 40vw;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    background: aquamarine;
+    border: solid 2px aqua;
+}
+
+.BtnPrimary .Icon{
+    color: white;
+    color: darkcyan;
+    width: 1.4vw;
+    height: 1.4vw;
+}

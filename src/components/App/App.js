@@ -5,12 +5,17 @@ import './App.css';
 
 
 function App() {
-  const [item, saveItemLocal] = UseCustomHooks('listProducts', []); //Uso el CustomHooks para hacer una experiencia a un metodo API
+  const {
+    items : item,
+    saveItemLocal: saveItemLocal,
+    loading: loading,
+    error: error
+  } = UseCustomHooks('listProducts', []); //Uso el CustomHooks para hacer una experiencia a un metodo API
 
   const [searchValue, setSearchValue] = React.useState(''); // UseState para el input
   const completedProducts = item.filter(x => !!x.completed).length; // !! trabaja con valores falsos o verdaderos
   const totalProducts = item.length;
-  
+
   const searchListProduct = item.filter((x) => x.text.toLowerCase().includes(searchValue.toLowerCase()));
 
   const completeProduct = (text) => {
@@ -40,6 +45,8 @@ function App() {
       setSearchValue={setSearchValue}
       completeProduct={completeProduct}
       removeProduct={removeProduct}
+      loading={loading}
+      error={error}
     />
   )
 }
