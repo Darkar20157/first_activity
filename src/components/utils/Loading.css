@@ -10,7 +10,7 @@
     border-radius: 20px;
     cursor: pointer;
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .Loading-Container span{
@@ -26,7 +26,7 @@
     width: 1.4vw;
     color: hidden;
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .Loading-Container .Loading-Text{
@@ -49,8 +49,9 @@
 .Loading-Text
 .Loading-Delete{
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     animation: loadingAnimation 3s ease-in-out infinite;
+    background-size: 200% 200%;
 }
 
 @keyframes loadingAnimation{

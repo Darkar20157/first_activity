@@ -40,10 +40,9 @@
 
 .App-center{
   display: flex;
-  width: 100%;
+  width: 98vw;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
 }
 
 .App-center input{
@@ -52,4 +51,3 @@
   width: 400px;
   border: solid 2px gainsboro;
 }
-

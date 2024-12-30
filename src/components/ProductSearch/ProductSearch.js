@@ -1,6 +1,8 @@
 import React from "react";
+import { ProductContext } from "../ProductContext/ProductContext";
 
-function ProductSearch({searchValue, setSearchValue}){
+function ProductSearch(){
+    const { searchValue, setSearchValue } = React.useContext(ProductContext);
     return (
         <input
             placeholder="Buscar productos" 

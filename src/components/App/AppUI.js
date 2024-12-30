@@ -6,49 +6,46 @@ import { ProductItem } from '../ProductItem/ProductItem';
 import { Loading } from '../utils/Loading';
 import { Error }  from '../utils/Error';
 import { EmptyData } from '../utils/EmptyData';
-
+import { ProductContext } from '../ProductContext/ProductContext';
+import { Modal } from '../Modal/Modal';
 
 import React from "react";
 
-function AppUI(
-    {
-        completedProducts,
-        totalProducts,
-        searchValue,
-        searchListProduct,
-        setSearchValue,
-        completeProduct,
-        removeProduct,
-        loading,
-        error
-    }
-){
+function AppUI(){
+    const {
+      searchListProduct, 
+      completeProduct, 
+      removeProduct, 
+      loading, 
+      error,
+      openModalState,
+      setOpenModalState} = React.useContext(ProductContext); //Permite traer los datos del provider ya se esta usando ese contexto
+      //Tambien se puede traer los datos con el ProductContext.Consumer
+  
     return (
         <React.Fragment>
-          <ProductsCount productsAdd={completedProducts} totalProducts={totalProducts}/>
+          <ProductsCount/>
           <div className='App-center'>
-            <ProductSearch 
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            />
+            <ProductSearch/>
             <ListProducts>
-              {loading && <Loading /> }
-              {loading && <Loading /> }
-              {loading && <Loading /> }
-              {error && <Error/>  }
-              {(loading && searchListProduct.length === 0) && <EmptyData/> }
-              {searchListProduct.map((item, index) => (
-                <ProductItem 
-                  key={index} 
-                  text={item.text} 
-                  completed={item.completed} 
-                  onAdd={() => completeProduct(item.text)}
-                  onRemove={() => removeProduct(item.text)}
-                />
-              ))}
-          </ListProducts>
+                {loading && Array(3).fill(<Loading />) }
+                {error && <Error/>  }
+                {(loading && searchListProduct.length === 0) && <EmptyData/> }
+                {searchListProduct.map((item, index) => (
+                  <ProductItem 
+                    key={index} 
+                    text={item.text} 
+                    completed={item.completed} 
+                    onAdd={() => completeProduct(item.text)}
+                    onRemove={() => removeProduct(item.text)}
+                  />
+                ))}
+              </ListProducts>
           </div>
-          <CreateBtnProduct/>
+          <CreateBtnProduct setOpenModalState={setOpenModalState} />
+            {openModalState && (
+              <Modal></Modal>
+            )}
         </React.Fragment>
     );
 }

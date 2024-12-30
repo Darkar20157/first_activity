@@ -39,6 +39,7 @@
 .Item .description--active{
     color: grey;
     cursor: auto;
+    text-decoration: line-through;
 }
 
 .Item .delete{

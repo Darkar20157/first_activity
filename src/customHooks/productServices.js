@@ -24,16 +24,16 @@ function UseCustomHooks(itemName, initialValue){
   React.useEffect(() => {
     setTimeout(() =>  {
       try{
-        const localStorageItem = localStorage.getItem('listProducts');
+        const localStorageItem = localStorage.getItem(itemName);
         let parsedItem;
   
         if(!localStorageItem || localStorageItem === "[]"){
           localStorage.setItem("listProducts", JSON.stringify(listProducts));
           parsedItem = listProducts;
         }else{
-          parsedItem = JSON.parse(localStorage.getItem("listProducts"));
-          setItems(parsedItem);
+          parsedItem = JSON.parse(localStorage.getItem(itemName));
         }
+        setItems(parsedItem);
         setLoading(false);
       }catch(err){
         setError(err);
